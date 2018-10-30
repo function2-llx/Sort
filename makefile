@@ -1,4 +1,4 @@
-OPT = -std=c++11 -Wall
+OPT = -std=c++11 -Wall -O3
 HEADER = $(wildcard src/*.h)
 SRC = $(wildcard src/*.cpp)
 OBJ = $(SRC:src/%.cpp=obj/%.o)
