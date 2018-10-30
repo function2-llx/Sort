@@ -3,17 +3,21 @@ HEADER = $(wildcard src/*.h)
 SRC = $(wildcard src/*.cpp)
 OBJ = $(SRC:src/%.cpp=obj/%.o)
 TARGET = bin/main
+OUTPUT = statistics/data_origin.txt
 
 .PHONY: all
 all: $(TARGET)
 
 .PHONY: run
 run: $(TARGET)
-	./$<
+	./$< > $(OUTPUT)
 
 $(TARGET): $(OBJ) main.cpp
-	g++ $(OPT) $^ -o $@
+	g++ $(OPT) $^ -o $@ 
 
 obj/%.o: src/%.cpp src/%.h
-	g++ -c $(OBT) $< -o $@
+	g++ -c $(OPT) $< -o $@
 
+.PHONY: clean
+clean:
+	rm -rf $(OBJ) $(TARGET)

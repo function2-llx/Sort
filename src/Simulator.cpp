@@ -33,7 +33,6 @@ void Simulator::sort(int* l, int* r)
 
 Simulator::Simulator(int n) : n(n)
 {
-	srand(time(NULL));
 	a = new int[n];
 	for (int i = 0; i < n; i++)
 		a[i] = rand();
