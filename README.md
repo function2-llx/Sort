@@ -44,4 +44,13 @@ make run
 echo 10 10 | make run
 ```
 
+文件：
+
+```bash
+make run < input.txt
+```
+
 数据储存在 `statistics/data_origin` 中。
+
+
+
