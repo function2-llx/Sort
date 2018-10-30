@@ -4,19 +4,7 @@
 
 ## 数据说明
 
-数据放在 `statistics/` 目录。因为肯定很大，使用 git-lfs 进行管理，可能需要提前安装好，否则容易出错。
-
-```bash
-sudo apt install git # 更新git
-sudo apt install git-lfs # 有时候会有蜜汁提示告诉你 git-lfs坏了，需要先这样装一下
-git lfs install
-```
-
-尽量在装好git-lfs后再 clone 仓库。如果本地不能正常显示数据（给你显示一堆SHA1啥的），尝试
-
-```bash
-git lfs pull
-```
+数据放在 `statistics/` 目录。
 
 ### 数据格式
 
