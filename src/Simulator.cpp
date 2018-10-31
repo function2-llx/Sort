@@ -19,13 +19,13 @@ void Simulator::sort(int* l, int* r)
     if (n>32){
         upper=9;
     }else{
-        if (n>25){
+        if (n>10){
             upper=3;
         }else{
             upper=1;
         }
     }
-    int *rr=l+9;
+    int *rr=l+upper;
     while (step<upper){
         for (int *i=l,*j=i+step,*k=j+step;k<rr;i=k+step,j=i+step,k=j+step){
             if (!cmp(*i,*j)){
