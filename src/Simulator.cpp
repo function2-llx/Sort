@@ -15,20 +15,26 @@ void Simulator::sort(int* l, int* r)
 	int n = r - l;
 	if (n <= 1)
 		return;
-	int *i = l, *j = r - 1, val = *(l + rand() % n);
-	while (i <= j) {
-		while (i <= j && this->cmp(*i, val))
-			i++;
-		while (i <= j && this->cmp(val, *j))
-			j--;
-		if (i > j)
-			break;
-		std::swap(*i, *j);
-		i++;
-		j--;
+    int *pivot=l+rand()%n;
+    std::swap(*l,*pivot);
+	int *i = l, *j = r - 1, val = *l;
+	while (i < j) {
+        while (i<j && !cmp(*j,val)){
+            j--;
+        }
+        if (i<j){
+            *(i++)=*j;
+        }
+        while (i<j && !cmp(val,*i)){
+            i++;
+        }
+        if (i<j){
+            *(j--)=*i;
+        }
 	}
-	this->sort(l, j + 1);
-	this->sort(i, r);
+    *i=val;
+	this->sort(l, i);
+	this->sort(i+1, r);
 }
 
 Simulator::Simulator(int n) : n(n)
