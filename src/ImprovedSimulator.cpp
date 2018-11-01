@@ -1,6 +1,8 @@
 #include "ImprovedSimulator.h"
 #include <algorithm>
 
+ImprovedSimulator::ImprovedSimulator(int n) : Simulator(n) {}
+
 void ImprovedSimulator::sort(int* l, int* r)
 {
 	int n = r - l;
