@@ -1,16 +1,9 @@
-#include <ctime>
-#include <cassert>
-#include <cstdlib>
+#include "ImprovedSimulator.h"
 #include <algorithm>
-#include "Simulator.h"
 
-bool Simulator::cmp(int a, int b)
-{
-	cnt++;
-	return a < b;
-}
+ImprovedSimulator::ImprovedSimulator(int n) : Simulator(n) {}
 
-void Simulator::sort(int* l, int* r)
+void ImprovedSimulator::sort(int* l, int* r)
 {
 	int n = r - l;
 	if (n <= 1)
@@ -61,32 +54,4 @@ void Simulator::sort(int* l, int* r)
     *i=val;
 	this->sort(l, i);
 	this->sort(i+1, r);
-}
-
-Simulator::Simulator(int n) : n(n)
-{
-	a = new int[n];
-	for (int i = 0; i < n; i++)
-		a[i] = rand();
-}
-
-Simulator::~Simulator()
-{
-	delete[] a;
-}
-
-int Simulator::solve()
-{
-	cnt = 0;
-	this->sort(a, a + n);
-	assert(this->check());
-	return cnt;
-}
-
-bool Simulator::check() const
-{
-	for (int i = 1; i < n; i++)
-		assert(a[i - 1] <= a[i]);
-
-	return 1;
 }
