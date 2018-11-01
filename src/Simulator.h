@@ -4,9 +4,11 @@ class Simulator {
 	private:
 		int *a, n;
 		int cnt;
-		bool cmp(int a, int b);
-		void sort(int* l, int* r);
 		bool check() const;
+
+	protected:
+		bool cmp(int a, int b);
+		virtual void sort(int* l, int* r);
 
 	public:
 		Simulator(int n);
