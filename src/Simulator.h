@@ -1,7 +1,7 @@
 #pragma once
 
 class Simulator {
-	private:
+	public:
 		int *a, n;
 		int cnt;
 		bool check() const;
