@@ -47,7 +47,7 @@ def MSE(f, g):
 	for x, y in zip(f, g):
 		ret += sqr(x - y)
 
-	return ret
+	return ret / len(f)
 
 if __name__ == "__main__":
 	length = 100
@@ -65,4 +65,4 @@ if __name__ == "__main__":
 	for i in range(length):
 		g.append(gammaDisdribution(i + 0.5, alpha, lambda_))
 
-	print('MES=', MSE(f, g))
+	print('MSE=', MSE(f, g))
