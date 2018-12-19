@@ -1,6 +1,7 @@
 from scipy.special import gamma, beta
 import math
 
+# density
 def gammaDisdribution(x, alpha, lambda_):
 	assert x >= 0
 	return (lambda_ ** alpha) * (x ** (alpha - 1)) * (math.e ** (-lambda_ * x)) / gamma(alpha)

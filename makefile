@@ -10,11 +10,11 @@ all: $(TARGET)
 
 .PHONY: origin
 origin: $(TARGET)
-	./$<
+	./$< < parameter.txt
 
 .PHONY: improved
 improved: $(TARGET)
-	./$< improved
+	./$< improved < parameter.txt`
 
 $(TARGET): $(OBJ) main.cpp
 	g++ $(OPT) $^ -o $@ 
