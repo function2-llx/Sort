@@ -14,7 +14,7 @@ origin: $(TARGET)
 
 .PHONY: improved
 improved: $(TARGET)
-	./$< improved < parameter.txt`
+	./$< improved < parameter.txt
 
 $(TARGET): $(OBJ) main.cpp
 	g++ $(OPT) $^ -o $@ 

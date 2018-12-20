@@ -1,8 +1,9 @@
-from scipy.special import gamma, beta
+from scipy.special import gamma
 import math
+from matplotlib import pyplot as plt
 
 # density
-def gammaDisdribution(x, alpha, lambda_):
+def gamma_density(x, alpha, lambda_):
 	assert x >= 0
 	return (lambda_ ** alpha) * (x ** (alpha - 1)) * (math.e ** (-lambda_ * x)) / gamma(alpha)
 
@@ -57,6 +58,7 @@ if __name__ == "__main__":
 
 	print('alpha=', alpha, 'lambda=', lambda_)
 	T = len(cnt)
+
 	f = [0] * length
 	for x in cnt:
 		# print(x)
@@ -64,6 +66,15 @@ if __name__ == "__main__":
 
 	g = []
 	for i in range(length):
-		g.append(gammaDisdribution(i + 0.5, alpha, lambda_))
+		g.append(gamma_density(i + 0.5, alpha, lambda_))
+
+
+	plt.plot([i + 0.5 for i in range(length)], f)
+	plt.plot([i + 0.5 for i in range(length)], g)
+	plt.xlabel(r'$\alpha=$' + str((round(alpha, 2))) + ' ' + r'$\lambda=$' + str(round(lambda_, 2)))
+	plt.savefig('./fit/fit')
+	plt.show()
+
+	
 
 	print('MSE=', MSE(f, g))
